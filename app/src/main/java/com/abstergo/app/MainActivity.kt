@@ -1,4 +1,4 @@
-@file:OptIn(androidx.compose.ui.text.ExperimentalTextApi::class)
+@file:OptIn(androidx.compose.ui.text.ExperimentalTextApi::class, androidx.compose.foundation.ExperimentalFoundationApi::class)
 
 package com.abstergo.app
 
