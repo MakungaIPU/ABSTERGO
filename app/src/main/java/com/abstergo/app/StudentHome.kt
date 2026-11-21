@@ -104,9 +104,9 @@ fun StudentHome(profile: Profile, dark: Boolean, onToggle: () -> Unit, pendingUr
     LaunchedEffect(pendingUri) { if (pendingUri != null) { importUri = pendingUri; onConsumeUri() } }
     LaunchedEffect(importUri) {
         val u = importUri ?: return@LaunchedEffect
+        val result = withContext(Dispatchers.IO) { analyzeImport(ctx, u, profile.extra, schedules) }
+        importState = result
         importUri = null
-        importState = withContext(Dispatchers.IO) { analyzeImport(ctx, u, profile.extra, schedules) }
-    }
 
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
